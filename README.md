@@ -1,6 +1,6 @@
 # Custom JavaScript Dummy Data
 
-A collection of **50 standalone sensor simulators** across **17 domains**, each generating realistic dummy data as plain JavaScript objects. No dependencies, no build step — every file is a single function you can drop into any project, test harness, mock server, or dashboard prototype.
+A collection of **62 standalone sensor simulators** across **18 domains**, each generating realistic dummy data as plain JavaScript objects. No dependencies, no build step — every file is a single function you can drop into any project, test harness, mock server, or dashboard prototype.
 
 Every simulator follows the same shape as the original [`temperature-sensor.js`](#usage): a `generateSensorData()` function that returns an object with a `sensor_id`, domain-specific readings, `_unit`-suffixed metadata fields, and an ISO-8601 `timestamp`.
 
@@ -176,6 +176,22 @@ Signatures below are exactly as implemented in each file.
 | `perimeter-radar.js` | FMCW surveillance radar | `(sensorId, mode = "auto")` — `INTRUDER`, `VEHICLE`, `FLOCK` |
 | `seismic-geophone.js` | Buried geophone array | `(sensorId, mode = "auto")` — `FOOTSTEPS`, `DIGGING`, `TUNNELING`, `VEHICLE` |
 | `taut-wire-sensor.js` | Taut-wire strain posts | `(sensorId, mode = "auto")` — `CLIMB`, `PARTED`, `PRESSURE` |
+
+### `smart-building/` — intelligent building systems (12 sensors)
+| File | Simulates | Signature & forced scenarios |
+|---|---|---|
+| `hvac-temperature-sensor.js` | Zone HVAC temperature + VAV damper | `(sensorId, mode = "auto")` — `OCCUPIED`, `UNOCCUPIED` |
+| `humidity-sensor.js` | RH + mold-risk management | `(sensorId, mode = "auto")` — `TOO_DRY`, `TOO_HUMID`, `ALERT_MOLD_RISK` |
+| `air-quality-sensor.js` | CO₂/VOC/PM2.5 IAQ + DCV | `(sensorId, mode = "auto")` — `POOR`, `FORGET_AIR` |
+| `light-sensor.js` | Daylight lux + glare/blinds | `(sensorId, mode = "auto")` — `OVERCAST`, `SUNNY`, `GLARE_EVENT` |
+| `motion-pir-sensor.js` | PIR occupancy + relay logic | `(sensorId, mode = "auto")` — `MOTION`, `WALK_THROUGH`, `SUSTAINED_PRESENCE` |
+| `people-counter-sensor.js` | Thermal-array people counting | `(sensorId, mode = "auto")` — `QUEUE_BUILDING`, `CAPACITY_ALERT`, `EMPTY` |
+| `contact-sensor.js` | Reed door/window/cabinet contact | `(sensorId, mode = "auto")` — `OPEN`, `OPEN_LONG`, `TAMPER` |
+| `energy-meter-sensor.js` | Branch-circuit kWh metering | `(sensorId, load = "auto")` — `STEADY`, `LUMPY`, `EXPORT` |
+| `water-leak-sensor.js` | Leak rope (weep vs flood) | `(sensorId, mode = "auto")` — `WEEP`, `FLOOD`, `WIRE_FAULT` |
+| `gas-detector-sensor.js` | Combustible %LEL + CO safety | `(sensorId, mode = "auto")` — `CO_ELEVATED`, `GAS_LEL_RISING`, `ALARM_LIKELY_LEAK` |
+| `smoke-fire-sensor.js` | Photoelectric smoke + ROR heat | `(sensorId, mode = "auto")` — `SMOKE_GROWING`, `HEAT_SPIKE`, `FIRE_CONFIRMED` |
+| `vibration-pressure-sensor.js` | Pump/fan vibration + duct DP | `(sensorId, mode = "auto")` — `WATCH`, `DEFECT_DEVELOPING`, `ALARM_VIBRATION` |
 
 ## Testing
 
